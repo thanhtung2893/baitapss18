@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class student {
+            constructor(id, name, gender, age, mark) {
+                this.id = id,
+                    this.name = name,
+                    this.gender = gender,
+                    this.age = age,
+                    this.mark = mark
+            }
+        }
+        let student1 = new student(1, "Nguyexn thị Nở", "nữ", 28, 9);
+        let student2 = new student(2, "Nguyễn văn bi", "nam", 22, 8);
+        let student3 = new student(3, "Nguyễn văn bò", "nam", 22, 9);
+        let student4 = new student(4, "Nguyễn văn un", "nữ", 22, 4);
+        let student5 = new student(5, "Nguyễn văn báo", "nam", 22, 2);
+
+
+
+
+        let arr = []
+        arr.push(student1, student2, student3, student4, student5);
+        //tính điểm trung bình
+        let tong = 0
+        for (let i = 0; i < arr.length; i++) {
+            tong += arr[i].mark;
+
+        }
+
+
+        //sắp xếp để tìm giá trị mark cao nhất trong mảng
+        /*  arr.sort(function (a, b) { return a.mark - b.mark });
+         console.log(arr)//giá trị cao nhất là 9 */
+        let max = arr[0].mark
+        for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i].mark) {
+                max = arr[i].mark
+            };
+
+        }
+        let diemCaoNhat = arr.filter((arr) => {
+            return arr.mark == max
+        })
+        console.log(`những bạn có số điểm cao nhất là :`);
+        console.log(diemCaoNhat);
+
+        let dtb = 0
+        dtb = tong / arr.length
+        console.log("điểm trung bình của lớp là",dtb);
+        if (dtb > 0 && dtb < 7) {
+            console.log("lớp đạt loại trung bình");
+
+        } else if (7 <= dtb <= 10) {
+            console.log("lớp đạt loại giỏi");
+        }
+        //lọc các object có số điểm là 9.
+        /*  let diemCaoNhat = arr.filter(function (arr) {
+             return arr.mark == 9;
+         });
+         console.log(diemCaoNhat); */
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

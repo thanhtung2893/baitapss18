@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let stores = [
+            { id: 1, name: "Milk", count: 100, sell: 0 },
+            { id: 2, name: "Yakult", count: 100 ,sell:0},
+            { id: 3, name: "Butter", count: 100,sell:0 }
+        ];
+        let carts = [];
+
+        while (true) {
+            let action = prompt("Nhập vào C/R/U/D/E:");
+
+            if (action === "C") {
+                let productName = prompt("Nhập tên sản phẩm muốn mua:");
+                let foundProduct = stores.find((product) => product.name === productName);
+
+                if (foundProduct) {
+                    foundProduct.count--;
+                    foundProduct.sell++;
+                    carts.push({name: foundProduct.name, sell: foundProduct.sell});
+                    console.log(stores);
+                    console.log(carts);
+                } else {
+                    console.log(`Không tìm thấy sản phẩm "${productName}" trong cửa hàng.`);
+                }
+            } else if (action === "R") {
+                console.log(`sản phẩm trong cửa hàng:`);
+                console.log(stores);
+                console.log(`Sản phẩm trong giỏ hàng:`);
+                console.log(carts);
+            } else if (action === "U") {
+                let position = prompt("Nhập vị trí update trong giỏ hàng:");
+                if (position >= 0 && position < carts.length) {
+                    let newCount = prompt("Nhập số lượng muốn thay đổi:");
+                    let updatedProduct = carts[position];
+                    updatedProduct.count = newCount;
+                    stores.find((product) => product.id === updatedProduct.id).count = newCount;
+                    
+                    console.log("Sản phẩm đã được cập nhật:");
+                    console.log(stores);
+                    console.log("Giỏ hàng sau khi cập nhật:");
+                    console.log(carts);
+                } else {
+                    console.log("Vị trí không hợp lệ trong giỏ hàng.");
+                }
+            } else if (action === "D") {
+                let position = prompt("Nhập vị trí của sản phẩm muốn xóa trong giỏ hàng:");
+                if (position >= 0 && position < carts.length) {
+                    let deletedProduct = carts.splice(position, 1)[0];
+                    stores.find((product) => product.id === deletedProduct.id).count += deletedProduct.count;
+                    console.log("Sản phẩm đã được xóa:");
+                    console.log(stores);
+                    console.log("Giỏ hàng sau khi xóa:");
+                    console.log(carts);
+                } else {
+                    console.log("Vị trí không hợp lệ trong giỏ hàng.");
+                }
+            } else if (action === "E") {
+                console.log("Cảm ơn bạn đã đến với Rikkei Stores.");
+                break;
+            } else {
+                console.log("Hành động không hợp lệ.");
+            }
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

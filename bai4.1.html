@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let products = [
+            {
+                id: 1,
+                name: "Milk",
+                count: 100,
+                loai: "ao"
+            },
+            {
+                id: 2,
+                name: "Yakult",
+                count: 200,
+                loai: "ao"
+            },
+            {
+                id: 3,
+                name: "Butter",
+                count: 180,
+                loai: "quan",
+            }
+        ];
+        let newProduct = {
+            id: 4,
+            name: "tea",
+            count: 130,
+            loai: "quan",
+        }
+        products.push(newProduct);
+        // let x = prompt("mời nhập kí tự muốn tìm kiếm")
+        /*  let arr = []
+         for (let i = 0; i < products.length; i++) {
+             if (products[i].name.indexOf(x) != -1) {
+                 arr.push(products[i])
+             }
+         } */
+        //console.log(arr);
+        products.sort(function (a, b) { return b.count - a.count });
+        console.log(products)
+        
+        let x=prompt("mời nhập")
+        let locSp = products.filter(function (products) {
+            return products.loai == x;
+        });
+        console.log(locSp);
+
+    </script>
+</body>
+
+</html>

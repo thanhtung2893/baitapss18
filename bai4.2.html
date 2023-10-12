@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class dog {
+            constructor(name, speed) {
+                this.name = name;
+                this.speed = speed;
+            }
+
+            gau() {
+                console.log(`${this.name} gau gau`);
+            }
+
+            catchCat(cat) {
+                if (this.speed > cat.speed) {
+                    console.log(`${this.name} bắt mèo!`);
+                    mouse.alive = false;
+                } else {
+                    console.log(`${this.name} Không bắt được mèo...`);
+                }
+            }
+
+        }
+        class cat {
+            constructor(name, speed) {
+                this.name = name;
+                this.speed = speed;
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
